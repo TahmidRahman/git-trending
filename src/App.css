@@ -14,14 +14,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #24292e;
+  height: 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 16px;
 }
 
 .App-link {
@@ -35,4 +36,93 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Banner {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #24292e;
+  background: #fafbfc;
+  padding: 16px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.Content {
+  padding: 40px 40px 20px;
+}
+
+.List-container {
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid lightgrey;
+}
+
+.Filter-container {
+  background: #f6f8fa;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid lightgrey;
+}
+
+.Filter-item {
+  margin-right: 16px;
+}
+
+.Filter-label {
+  margin-right: 16px;
+}
+
+.List-item {
+  border-bottom: 1px solid lightgrey;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+  justify-content: space-between;
+}
+
+.List-item_info {
+  display: flex;
+  align-items: center;
+}
+
+div .List-item span {
+  margin-top: 8px;
+  margin-right: 16px;
+}
+
+div .List-item_info svg {
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+div .List-item span[lang="Java"] {
+  background-color: #b07219;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+div .List-item span[lang="Javascript"] {
+  background-color: #f1e05a;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+div .List-item span[lang="Python"] {
+  background-color: #3572a5;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.Repo-link {
+  font-size: 18px;
 }
