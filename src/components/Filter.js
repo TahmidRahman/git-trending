@@ -1,5 +1,5 @@
-import React from "react";
-import { processDateRange } from "../utils";
+import React from 'react';
+import { processDateRange } from '../utils';
 
 export function Filter(props) {
   const { state } = props;
@@ -35,9 +35,9 @@ export function Filter(props) {
           value={state.created}
           onChange={onChange}
         >
-          <option value={processDateRange("today")}>Today</option>
-          <option value={processDateRange("this_week")}>This week</option>
-          <option value={processDateRange("this_month")}>This month</option>
+          <option value={processDateRange('today')}>Today</option>
+          <option value={processDateRange('this_week')}>This week</option>
+          <option value={processDateRange('this_month')}>This month</option>
         </select>
       </div>
     </div>

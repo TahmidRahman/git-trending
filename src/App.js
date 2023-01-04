@@ -1,26 +1,28 @@
-import "./App.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Filter, Header, Banner, List } from "./components";
-import { processDateRange } from "./utils";
+import './App.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Filter, Header, Banner, List } from './components';
+import { processDateRange } from './utils';
 
 function App() {
   const [filterState, setFilterState] = useState({
-    language: "java",
-    created: processDateRange("today"),
+    language: 'java',
+    created: processDateRange('today')
   });
 
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    async function repoSearch(query) {
+    async function fetchRepositories() {
       const res = await axios.get(
-        process.env.REACT_APP_GITHUB_SEARCH_API_ENDPOINT || "",
+        process.env.REACT_APP_GITHUB_SEARCH_API_ENDPOINT || '',
         {
           params: {
-            q: query,
-            per_page: 10,
-          },
+            sort: 'stars',
+            order: 'desc',
+            q: `language:${filterState.language} created:>${filterState.created}`,
+            per_page: 10
+          }
         }
       );
 
@@ -29,28 +31,7 @@ function App() {
       }
     }
 
-    function buildQuery(filterState) {
-      let string = "";
-
-      Object.keys(filterState).forEach((key) => {
-        if (filterState[key]) {
-          if (string.length > 0) {
-            string += " ";
-          }
-
-          if (key === "created") {
-            string += `${key}:>${filterState[key]}`;
-          } else {
-            string += `${key}:${filterState[key]}`;
-          }
-        }
-      });
-      return string;
-    }
-
-    const query = buildQuery(filterState);
-
-    repoSearch(query);
+    fetchRepositories();
   }, [filterState]);
 
   return (
@@ -64,7 +45,7 @@ function App() {
             onChange={(updateKeyValuePair) =>
               setFilterState({
                 ...filterState,
-                ...updateKeyValuePair,
+                ...updateKeyValuePair
               })
             }
           />
