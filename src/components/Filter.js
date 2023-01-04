@@ -21,7 +21,7 @@ export function Filter(props) {
           onChange={onChange}
         >
           <option value="java">Java</option>
-          <option value="js">Javascript</option>
+          <option value="javascript">Javascript</option>
           <option value="python">Python</option>
         </select>
       </div>

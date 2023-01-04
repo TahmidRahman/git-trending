@@ -6,8 +6,8 @@ import { processDateRange } from './utils';
 
 function App() {
   const [filterState, setFilterState] = useState({
-    language: 'java',
-    created: processDateRange('today')
+    language: 'javascript',
+    created: processDateRange('this_week')
   });
 
   const [results, setResults] = useState([]);
